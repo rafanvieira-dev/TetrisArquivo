@@ -20,21 +20,22 @@
         <h1>TETRIS <span>ARQUIVO</span></h1>
         <p class="tagline">Organize. Classifique. Preserve.</p>
       </div>
-      <div class="top-stamp"><span class="stamp-dot"></span> ACERVO EM MOVIMENTO</div>
-    </header>
-
-    <section class="account-bar" aria-label="Conta do jogador">
-      <div class="account-identity">
-        <img id="userAvatar" class="user-avatar hidden" alt="Foto do jogador">
-        <span id="userInitial" class="user-initial">?</span>
-        <div class="account-copy">
-          <strong id="userName">Visitante</strong>
-          <small id="authStatus">Entre para salvar seu recorde no ranking global</small>
-        </div>
+      <div class="header-actions">
+        <div class="top-stamp"><span class="stamp-dot"></span> ACERVO EM MOVIMENTO</div>
+        <section class="account-bar header-account" aria-label="Conta do jogador">
+          <div class="account-identity">
+            <img id="userAvatar" class="user-avatar hidden" alt="Foto do jogador">
+            <span id="userInitial" class="user-initial">?</span>
+            <div class="account-copy">
+              <strong id="userName">Visitante</strong>
+              <small id="authStatus">Entre para salvar seu recorde no ranking global</small>
+            </div>
+          </div>
+          <button id="googleLoginBtn" class="google-btn" type="button">Entrar com Google</button>
+          <button id="googleLogoutBtn" class="google-btn secondary hidden" type="button">Sair</button>
+        </section>
       </div>
-      <button id="googleLoginBtn" class="google-btn" type="button">Entrar com Google</button>
-      <button id="googleLogoutBtn" class="google-btn secondary hidden" type="button">Sair</button>
-    </section>
+    </header>
 
     <section class="game-layout" aria-label="Jogo Tetris Arquivo">
       <aside class="side-panel left-panel">
