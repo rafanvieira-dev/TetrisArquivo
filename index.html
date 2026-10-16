@@ -22,6 +22,19 @@
       <div class="top-stamp"><span class="stamp-dot"></span> ACERVO EM MOVIMENTO</div>
     </header>
 
+    <section class="account-bar" aria-label="Conta do jogador">
+      <div class="account-identity">
+        <img id="userAvatar" class="user-avatar hidden" alt="Foto do jogador">
+        <span id="userInitial" class="user-initial">?</span>
+        <div class="account-copy">
+          <strong id="userName">Visitante</strong>
+          <small id="authStatus">Entre para salvar seu recorde no ranking global</small>
+        </div>
+      </div>
+      <button id="googleLoginBtn" class="google-btn" type="button">Entrar com Google</button>
+      <button id="googleLogoutBtn" class="google-btn secondary hidden" type="button">Sair</button>
+    </section>
+
     <section class="game-layout" aria-label="Jogo Tetris Arquivo">
       <aside class="side-panel left-panel">
         <section class="panel-card score-card">
@@ -91,6 +104,15 @@
           </ol>
         </section>
 
+        <section class="panel-card ranking-card">
+          <div class="panel-heading"><span class="mini-icon">♛</span><h2>RANKING GLOBAL</h2></div>
+          <p class="ranking-caption">Melhores recordes dos jogadores</p>
+          <ol id="leaderboardList" class="leaderboard-list">
+            <li class="ranking-empty">Carregando ranking...</li>
+          </ol>
+          <p id="rankingMessage" class="ranking-message" aria-live="polite"></p>
+        </section>
+
         <section class="panel-card motto-card">
           <div class="motto-mark">“</div>
           <p>Arquivos organizados<br><strong>preservam histórias.</strong></p>
@@ -105,5 +127,6 @@
     </footer>
   </main>
   <script src="script.js"></script>
+  <script type="module" src="firebase.js"></script>
 </body>
 </html>
