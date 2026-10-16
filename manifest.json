@@ -1,0 +1,21 @@
+{
+  "id": "./",
+  "name": "Tetris Arquivo",
+  "short_name": "Tetris Arquivo",
+  "description": "Organize. Classifique. Preserve. Um jogo de Tetris com tema arquivístico.",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b1118",
+  "theme_color": "#111923",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
