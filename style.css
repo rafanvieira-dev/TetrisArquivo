@@ -109,3 +109,39 @@ kbd { display:inline-grid; place-items:center; min-width:17px; height:17px; marg
   .board-footer { gap:7px; }
   .footer { font-size:7px; letter-spacing:.6px; }
 }
+
+
+/* Conta Google e ranking global */
+.account-bar {
+  display:flex; align-items:center; justify-content:space-between; gap:14px;
+  margin:0 0 18px; padding:12px 15px; border:1px solid #2b3d4c;
+  border-radius:9px; background:linear-gradient(145deg,rgba(25,37,49,.96),rgba(15,24,34,.98));
+  box-shadow:0 9px 22px #0002, inset 0 1px 0 #ffffff08;
+}
+.account-identity { display:flex; align-items:center; gap:10px; min-width:0; }
+.user-avatar,.user-initial { width:38px; height:38px; border-radius:50%; flex:none; }
+.user-avatar { object-fit:cover; border:1px solid #d5a35e; }
+.user-initial { display:grid; place-items:center; color:#17212a; background:#d5a35e; font-weight:800; }
+.account-copy { display:flex; flex-direction:column; gap:4px; min-width:0; }
+.account-copy strong { color:#edf3f6; font-size:12px; overflow:hidden; text-overflow:ellipsis; }
+.account-copy small { color:#8da0af; font-size:10px; line-height:1.4; }
+.google-btn { cursor:pointer; flex:none; border:1px solid #d5a35e; border-radius:5px; padding:10px 13px; color:#151e26; background:#d5a35e; font-size:10px; font-weight:800; }
+.google-btn:hover { filter:brightness(1.08); }
+.google-btn.secondary { color:#dbe5eb; background:#202d39; border-color:#3b4d5b; }
+.hidden { display:none !important; }
+.ranking-caption { margin:-5px 0 12px; color:#8da0af; font-size:10px; }
+.leaderboard-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:7px; counter-reset:ranking; }
+.leaderboard-list li { counter-increment:ranking; display:grid; grid-template-columns:22px 28px minmax(0,1fr) auto; align-items:center; gap:8px; padding:7px 0; border-bottom:1px solid #263543; }
+.leaderboard-list li:last-child { border-bottom:0; }
+.rank-number { color:#d5a35e; font:800 13px "Barlow Condensed",sans-serif; text-align:center; }
+.rank-avatar,.rank-initial { width:27px; height:27px; border-radius:50%; object-fit:cover; }
+.rank-initial { display:grid; place-items:center; background:#293b49; color:#dbe5eb; font-size:10px; font-weight:800; }
+.rank-name { min-width:0; color:#dbe5eb; font-size:10px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.rank-score { color:#d5a35e; font:700 14px "Barlow Condensed",sans-serif; letter-spacing:.4px; }
+.ranking-empty { display:block !important; color:#8da0af; font-size:10px; padding:10px 0 !important; }
+.ranking-message { color:#8da0af; font-size:10px; line-height:1.4; margin:8px 0 0; }
+@media (max-width:600px) {
+  .account-bar { align-items:flex-start; flex-wrap:wrap; }
+  .account-identity { flex:1 1 100%; }
+  .google-btn { flex:1; }
+}
