@@ -523,3 +523,76 @@ kbd { display:inline-grid; place-items:center; min-width:17px; height:17px; marg
     width: 100%;
   }
 }
+
+
+/* Cabeçalho compacto: conta ao lado de Acervo em Movimento */
+@media (min-width: 921px) {
+  .topbar { gap: 14px; }
+  .header-actions {
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:10px;
+    flex:0 1 auto;
+    min-width:0;
+  }
+  .top-stamp { padding:9px 10px; font-size:9px; }
+  .account-bar.header-account {
+    margin:0;
+    padding:6px 8px;
+    gap:9px;
+    box-shadow:none;
+    background:rgba(15,24,34,.75);
+  }
+  .header-account .user-avatar,
+  .header-account .user-initial { width:29px; height:29px; }
+  .header-account .account-identity { gap:7px; }
+  .header-account .account-copy strong { font-size:11px; max-width:105px; }
+  .header-account .account-copy small { display:none; }
+  .header-account .google-btn { padding:8px 10px; font-size:9px; }
+  /* O espaço liberado pela barra separada aumenta um pouco a área do jogo */
+  #gameCanvas {
+    width: min(100%, calc(min(68vh, 570px) / 2));
+    max-height:none;
+    aspect-ratio:1 / 2;
+  }
+}
+@media (max-width: 920px) {
+  .topbar { flex-wrap:wrap; }
+  .header-actions {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+    width:100%;
+    min-width:0;
+  }
+  .header-actions .top-stamp {
+    display:block;
+    padding:8px 9px;
+    font-size:8px;
+    letter-spacing:.7px;
+  }
+  .account-bar.header-account {
+    flex:1;
+    min-width:0;
+    margin:0;
+    padding:6px 7px;
+    gap:6px;
+    box-shadow:none;
+  }
+  .header-account .account-identity { flex:1; gap:6px; }
+  .header-account .user-avatar,
+  .header-account .user-initial { width:28px; height:28px; }
+  .header-account .account-copy strong { font-size:10px; }
+  .header-account .account-copy small { display:none; }
+  .header-account .google-btn { padding:8px 9px; font-size:9px; }
+}
+@media (max-width: 600px) {
+  .header-actions { gap:6px; }
+  .header-actions .top-stamp { max-width:46%; white-space:normal; line-height:1.4; }
+  .account-bar.header-account { flex-wrap:nowrap; }
+  .header-account .account-identity { flex:1 1 auto; min-width:0; }
+  .header-account .google-btn { flex:0 0 auto; }
+  .header-account .account-copy strong { max-width:82px; }
+}
