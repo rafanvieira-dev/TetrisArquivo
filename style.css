@@ -438,3 +438,73 @@ kbd { display:inline-grid; place-items:center; min-width:17px; height:17px; marg
     background:#0b131c;
   }
 }
+
+
+/* Modo compacto para PC: todo o painel cabe na altura da janela */
+@media (min-width: 921px) and (min-height: 700px) {
+  body { min-height:100vh; overflow-y:auto; }
+  .app-shell { padding-top:12px; padding-bottom:8px; }
+  .topbar { padding-bottom:12px; margin-bottom:12px; }
+  .brand-mark { width:44px; height:44px; }
+  .account-bar { margin-bottom:12px; padding:8px 12px; }
+  .game-layout { gap:14px; }
+  .side-panel { gap:10px; }
+  .panel-card { padding:12px; }
+  .piece-legend { gap:9px; }
+  .legend-swatch { width:23px; height:23px; }
+  .legend-item b { font-size:11px; }
+  .legend-item small { font-size:9px; }
+  .score-card > strong { font-size:27px; }
+  .stat-divider { margin:7px 0; }
+  .stat-row { padding:5px 0; }
+  .board-topline { margin-bottom:6px; }
+  .board-frame { padding:7px; }
+  .board-footer { padding-top:7px; gap:6px 9px; }
+  .archive-note { padding:13px 14px 12px; }
+  .archive-note p:last-child { font-size:12px; line-height:1.4; }
+  .howto-card ol { gap:8px; }
+  .ranking-caption { margin-bottom:7px; }
+  .leaderboard-list { gap:3px; }
+  .leaderboard-list li { padding:5px 0; }
+  .rank-avatar, .rank-initial { width:25px; height:25px; }
+  .motto-card { padding:12px; }
+  .motto-card p { font-size:16px; margin:5px 0 8px; }
+  .footer { margin-top:12px; padding-top:9px; }
+}
+@media (min-width: 921px) and (max-height: 699px) {
+  .app-shell { padding-top:7px; padding-bottom:6px; }
+  .topbar { padding-bottom:7px; margin-bottom:7px; }
+  .brand-mark { width:34px; height:34px; }
+  .eyebrow { font-size:8px; }
+  h1 { font-size:30px; }
+  .tagline { margin-top:4px; font-size:9px; }
+  .account-bar { margin-bottom:7px; padding:6px 10px; }
+  .user-avatar, .user-initial { width:29px; height:29px; }
+  .game-layout { gap:10px; }
+  .side-panel { gap:7px; }
+  .panel-card { padding:9px; }
+  .left-panel #nextCanvas { width:100px; height:66px; }
+  .score-card > strong { font-size:23px; }
+  .stat-divider { margin:5px 0; }
+  .stat-row { padding:3px 0; }
+  .piece-legend { gap:6px; }
+  .legend-swatch { width:19px; height:19px; }
+  .legend-item b { font-size:10px; }
+  .legend-item small { font-size:8px; }
+  .board-topline { font-size:8px; margin-bottom:4px; }
+  .board-frame { padding:5px; }
+  .board-footer { padding-top:5px; font-size:7px; gap:4px 7px; }
+  .howto-card ol { gap:5px; }
+  .howto-card li { font-size:9px; }
+  .ranking-caption { margin-bottom:4px; }
+  .leaderboard-list { gap:1px; }
+  .leaderboard-list li { padding:3px 0; }
+  .rank-avatar, .rank-initial { width:21px; height:21px; }
+  .rank-name { font-size:9px; }
+  .rank-score { font-size:12px; }
+  .motto-card { padding:8px; }
+  .motto-mark { height:18px; font-size:30px; }
+  .motto-card p { font-size:14px; margin:3px 0 5px; }
+  .motto-card > span { font-size:7px; }
+  .footer { margin-top:7px; padding-top:6px; font-size:7px; }
+}
