@@ -666,3 +666,151 @@ kbd { display:inline-grid; place-items:center; min-width:17px; height:17px; marg
   .touch-actions { max-width:76px; }
   .touch-actions .touch-btn small { font-size:7px; }
 }
+
+
+/* Modo de jogo para celular/tablet: HUD, tabuleiro e touch; ranking somente ao perder */
+@media (max-width: 920px), (pointer: coarse) {
+  .mobile-speed-row { display:flex; }
+  .right-panel { display:none !important; }
+  body.mobile-playing .topbar,
+  body.mobile-gameover .topbar { display:none !important; }
+  body.mobile-playing .footer,
+  body.mobile-gameover .footer { display:none !important; }
+  body.mobile-playing .archive-note,
+  body.mobile-gameover .archive-note { display:none !important; }
+  body.mobile-playing .board-footer,
+  body.mobile-gameover .board-footer { display:none !important; }
+  body.mobile-playing .right-panel { display:none !important; }
+  body.mobile-gameover .right-panel {
+    display:flex !important;
+    order:4;
+    width:100%;
+    margin-top:8px;
+  }
+  body.mobile-gameover .right-panel > .panel-card { display:none !important; }
+  body.mobile-gameover .right-panel > .ranking-card { display:block !important; }
+  body.mobile-playing .app-shell,
+  body.mobile-gameover .app-shell {
+    width:100%;
+    max-width:520px;
+    padding:8px 8px max(8px, env(safe-area-inset-bottom));
+  }
+  body.mobile-playing .game-layout,
+  body.mobile-gameover .game-layout {
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    width:100%;
+    max-width:100%;
+    margin:0 auto;
+  }
+  body.mobile-playing .left-panel,
+  body.mobile-gameover .left-panel {
+    order:1;
+    display:grid;
+    grid-template-columns:minmax(0, .85fr) minmax(0, 1.15fr);
+    gap:8px;
+    width:100%;
+  }
+  body.mobile-playing .left-panel > .panel-card:not(.score-card),
+  body.mobile-gameover .left-panel > .panel-card:not(.score-card) {
+    display:block !important;
+    grid-column:1;
+    grid-row:1;
+    padding:8px;
+  }
+  body.mobile-playing .left-panel .score-card,
+  body.mobile-gameover .left-panel .score-card {
+    display:block;
+    grid-column:2;
+    grid-row:1;
+    padding:9px 11px;
+  }
+  body.mobile-playing .left-panel .panel-heading,
+  body.mobile-gameover .left-panel .panel-heading { margin-bottom:4px; }
+  body.mobile-playing .left-panel .panel-heading h2,
+  body.mobile-gameover .left-panel .panel-heading h2 { font-size:9px; letter-spacing:.5px; }
+  body.mobile-playing .left-panel #nextCanvas,
+  body.mobile-gameover .left-panel #nextCanvas {
+    width:100%;
+    max-width:100px;
+    height:48px;
+    max-height:48px;
+    margin:0 auto;
+  }
+  body.mobile-playing .score-card .panel-label,
+  body.mobile-gameover .score-card .panel-label { margin-bottom:2px; font-size:8px; }
+  body.mobile-playing .score-card > strong,
+  body.mobile-gameover .score-card > strong { font-size:clamp(22px, 6vw, 29px); line-height:1; }
+  body.mobile-playing .score-card .stat-divider,
+  body.mobile-gameover .score-card .stat-divider { margin:5px 0; }
+  body.mobile-playing .score-card .stat-row,
+  body.mobile-gameover .score-card .stat-row {
+    padding:3px 0;
+    font-size:8px;
+    letter-spacing:.4px;
+  }
+  body.mobile-playing .score-card .stat-row strong,
+  body.mobile-gameover .score-card .stat-row strong { font-size:13px; }
+  body.mobile-playing .board-wrap,
+  body.mobile-gameover .board-wrap {
+    order:2;
+    width:min(100%, 400px);
+    max-width:100%;
+    margin:0 auto;
+  }
+  body.mobile-playing .board-topline,
+  body.mobile-gameover .board-topline { margin:0 2px 5px; font-size:7px; }
+  body.mobile-playing .board-frame,
+  body.mobile-gameover .board-frame { padding:4px; }
+  body.mobile-playing #gameCanvas,
+  body.mobile-gameover #gameCanvas {
+    width:min(100%, calc((100dvh - 250px) / 2));
+    max-width:100%;
+    height:auto;
+    aspect-ratio:1 / 2;
+    margin:0 auto;
+  }
+  body.mobile-playing .overlay,
+  body.mobile-gameover .overlay { inset:4px; padding:8px; }
+  body.mobile-playing .overlay-card,
+  body.mobile-gameover .overlay-card { padding:12px 10px; }
+  body.mobile-playing .touch-controls,
+  body.mobile-gameover .touch-controls {
+    display:flex !important;
+    order:3;
+    width:100%;
+    max-width:400px;
+    margin:7px auto 0;
+    padding:7px;
+    gap:8px;
+  }
+  body.mobile-playing .touch-dpad,
+  body.mobile-gameover .touch-dpad {
+    grid-template-columns:repeat(3, minmax(0, 44px));
+    grid-template-rows:repeat(2, 40px);
+    gap:5px;
+  }
+  body.mobile-playing .touch-actions,
+  body.mobile-gameover .touch-actions { max-width:94px; }
+  body.mobile-playing .touch-btn,
+  body.mobile-gameover .touch-btn { min-height:40px; }
+}
+@media (max-width: 380px) {
+  body.mobile-playing .app-shell,
+  body.mobile-gameover .app-shell { padding:5px 5px max(5px, env(safe-area-inset-bottom)); }
+  body.mobile-playing .game-layout,
+  body.mobile-gameover .game-layout { gap:6px; }
+  body.mobile-playing .left-panel,
+  body.mobile-gameover .left-panel { gap:6px; }
+  body.mobile-playing .left-panel #nextCanvas,
+  body.mobile-gameover .left-panel #nextCanvas { height:40px; max-height:40px; }
+  body.mobile-playing #gameCanvas,
+  body.mobile-gameover #gameCanvas { width:min(100%, calc((100dvh - 225px) / 2)); }
+  body.mobile-playing .touch-controls,
+  body.mobile-gameover .touch-controls { margin-top:5px; padding:5px; gap:5px; }
+  body.mobile-playing .touch-dpad,
+  body.mobile-gameover .touch-dpad { grid-template-columns:repeat(3, 38px); grid-template-rows:repeat(2, 36px); gap:4px; }
+  body.mobile-playing .touch-actions,
+  body.mobile-gameover .touch-actions { max-width:78px; }
+}
