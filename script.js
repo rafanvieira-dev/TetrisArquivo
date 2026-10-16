@@ -10,6 +10,7 @@
   const scoreEl = document.getElementById("score");
   const linesEl = document.getElementById("lines");
   const levelEl = document.getElementById("level");
+  const speedEl = document.getElementById("speed");
   const bestEl = document.getElementById("best");
   const overlay = document.getElementById("overlay");
   const overlayTitle = document.getElementById("overlayTitle");
@@ -228,6 +229,7 @@
     scoreEl.textContent = formatScore(score);
     linesEl.textContent = lines;
     levelEl.textContent = level;
+    if (speedEl) speedEl.textContent = `${Math.max(1, Math.round(780 / Math.max(90, 780 - (level - 1) * 65)))}x`;
     if (score > best) {
       best = score;
       localStorage.setItem("tetrisArquivoBest", String(best));
@@ -275,6 +277,9 @@
     current = randomPiece(); next = randomPiece();
     current.y = -1;
     running = true; paused = false; gameOver = false; dropCounter = 0;
+    document.body.classList.add("mobile-playing");
+    document.body.classList.remove("mobile-gameover");
+    window.dispatchEvent(new CustomEvent("tetris:gamestart"));
     updateStats(); drawNext(); drawBoard();
     overlay.classList.add("hidden");
     statusText.textContent = "ARQUIVO EM ORGANIZAÇÃO";
@@ -285,6 +290,8 @@
 
   function endGame() {
     running = false; gameOver = true;
+    document.body.classList.remove("mobile-playing");
+    document.body.classList.add("mobile-gameover");
     statusText.textContent = "SESSÃO ENCERRADA";
     overlayTitle.textContent = "Arquivo cheio!";
     overlayMessage.textContent = `Você organizou ${lines} linha(s) e marcou ${score} pontos. Tente uma nova organização.`;
