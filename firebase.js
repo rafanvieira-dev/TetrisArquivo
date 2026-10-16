@@ -86,6 +86,26 @@ function watchLeaderboard() {
   });
 }
 
+// No celular, exigir login antes de iniciar uma partida.
+document.getElementById("startBtn")?.addEventListener("click", event => {
+  const mobileMode = window.matchMedia("(max-width: 920px), (pointer: coarse)").matches;
+  const isResume = document.body.classList.contains("mobile-playing") &&
+    document.getElementById("overlay")?.classList.contains("hidden") === false &&
+    document.getElementById("overlayTitle")?.textContent === "Jogo pausado";
+  if (mobileMode && !currentUser && !isResume) {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    setMessage("Entre com Google antes de começar a jogar.");
+    loginBtn.click();
+  }
+}, true);
+
+window.addEventListener("tetris:gamestart", () => {
+  document.body.classList.add("mobile-playing");
+  document.body.classList.remove("mobile-gameover");
+  setMessage("");
+});
+
 loginBtn.addEventListener("click", async () => {
   try {
     await signInWithPopup(auth, provider);
