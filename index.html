@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111923">
+  <title>Tetris Arquivo — Organize. Classifique. Preserve.</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand-mark" aria-hidden="true">
+        <span class="brand-box box-a"></span><span class="brand-box box-b"></span>
+        <span class="brand-box box-c"></span><span class="brand-box box-d"></span>
+      </div>
+      <div class="brand-copy">
+        <p class="eyebrow">DESAFIO DE ORGANIZAÇÃO DOCUMENTAL</p>
+        <h1>TETRIS <span>ARQUIVO</span></h1>
+        <p class="tagline">Organize. Classifique. Preserve.</p>
+      </div>
+      <div class="top-stamp"><span class="stamp-dot"></span> ACERVO EM MOVIMENTO</div>
+    </header>
+
+    <section class="game-layout" aria-label="Jogo Tetris Arquivo">
+      <aside class="side-panel left-panel">
+        <section class="panel-card score-card">
+          <p class="panel-label">PONTUAÇÃO</p>
+          <strong id="score">000000</strong>
+          <div class="stat-divider"></div>
+          <div class="stat-row"><span>LINHAS</span><strong id="lines">0</strong></div>
+          <div class="stat-row"><span>NÍVEL</span><strong id="level">1</strong></div>
+          <div class="stat-row"><span>RECORDE</span><strong id="best">000000</strong></div>
+        </section>
+
+        <section class="panel-card">
+          <div class="panel-heading"><span class="mini-icon">▤</span><h2>PRÓXIMA PEÇA</h2></div>
+          <canvas id="nextCanvas" width="180" height="132" aria-label="Próxima peça"></canvas>
+        </section>
+
+        <section class="archive-note">
+          <div class="note-pin"></div>
+          <p class="note-title">NOTA DO ARQUIVISTA</p>
+          <p>Uma linha organizada é uma etapa a mais para garantir o acesso à informação.</p>
+        </section>
+      </aside>
+
+      <section class="board-wrap">
+        <div class="board-topline">
+          <span><i class="live-dot"></i> SALA DE CLASSIFICAÇÃO</span>
+          <span id="statusText">PRONTO PARA JOGAR</span>
+        </div>
+        <div class="board-frame">
+          <canvas id="gameCanvas" width="300" height="600" aria-label="Tabuleiro do Tetris Arquivo"></canvas>
+          <div id="overlay" class="overlay">
+            <div class="overlay-card">
+              <div class="overlay-symbol">▤</div>
+              <p class="overlay-kicker">ACERVO DIGITAL</p>
+              <h2 id="overlayTitle">Vamos organizar?</h2>
+              <p id="overlayMessage">Encaixe as caixas, complete linhas e mantenha o arquivo em ordem.</p>
+              <button id="startBtn" class="primary-btn">INICIAR JOGO <span>→</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="board-footer">
+          <span><kbd>←</kbd><kbd>→</kbd> MOVER</span>
+          <span><kbd>↑</kbd> GIRAR</span>
+          <span><kbd>↓</kbd> ACELERAR</span>
+          <span><kbd>ESPAÇO</kbd> QUEDA</span>
+        </div>
+      </section>
+
+      <aside class="side-panel right-panel">
+        <section class="panel-card next-card">
+          <div class="panel-heading"><span class="mini-icon">▦</span><h2>PEÇAS DO ACERVO</h2></div>
+          <div class="piece-legend">
+            <div class="legend-item"><span class="legend-swatch kraft"></span><div><b>Caixa permanente</b><small>Guarda histórica</small></div></div>
+            <div class="legend-item"><span class="legend-swatch blue"></span><div><b>Uso corrente</b><small>Consulta frequente</small></div></div>
+            <div class="legend-item"><span class="legend-swatch green"></span><div><b>Intermediário</b><small>Guarda temporária</small></div></div>
+            <div class="legend-item"><span class="legend-swatch red"></span><div><b>Em avaliação</b><small>Destinação a definir</small></div></div>
+            <div class="legend-item"><span class="legend-swatch yellow"></span><div><b>Classificação</b><small>Organização documental</small></div></div>
+          </div>
+        </section>
+
+        <section class="panel-card howto-card">
+          <div class="panel-heading"><span class="mini-icon">⌘</span><h2>COMO JOGAR</h2></div>
+          <ol>
+            <li><span>01</span> Mova as caixas para os lados.</li>
+            <li><span>02</span> Gire para encaixar nos espaços.</li>
+            <li><span>03</span> Complete uma linha para liberar espaço.</li>
+          </ol>
+        </section>
+
+        <section class="panel-card motto-card">
+          <div class="motto-mark">“</div>
+          <p>Arquivos organizados<br><strong>preservam histórias.</strong></p>
+          <span>MEMÓRIA • ACESSO • CIDADANIA</span>
+        </section>
+      </aside>
+    </section>
+
+    <footer class="footer">
+      <span>PROJETO EXPERIMENTAL • TETRIS ARQUIVO</span>
+      <span>HTML · CSS · JAVASCRIPT</span>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
