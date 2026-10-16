@@ -508,3 +508,18 @@ kbd { display:inline-grid; place-items:center; min-width:17px; height:17px; marg
   .motto-card > span { font-size:7px; }
   .footer { margin-top:7px; padding-top:6px; font-size:7px; }
 }
+
+
+/* Reduz apenas a altura visual do tabuleiro no desktop, mantendo a proporção */
+@media (min-width: 921px) {
+  #gameCanvas {
+    width: 100%;
+    height: auto;
+    max-height: min(64vh, 540px);
+    aspect-ratio: 1 / 2;
+    object-fit: contain;
+  }
+  .board-frame {
+    width: 100%;
+  }
+}
