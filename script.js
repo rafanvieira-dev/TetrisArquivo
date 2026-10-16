@@ -290,6 +290,9 @@
     overlayMessage.textContent = `Você organizou ${lines} linha(s) e marcou ${score} pontos. Tente uma nova organização.`;
     startBtn.textContent = "JOGAR NOVAMENTE  →";
     overlay.classList.remove("hidden");
+    window.dispatchEvent(new CustomEvent("tetris:gameover", {
+      detail: { score, lines, level, best }
+    }));
   }
 
   function togglePause() {
