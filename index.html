@@ -4,6 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#111923">
+  <meta name="description" content="Tetris Arquivo: organize as peças, complete linhas e desafie o ranking global.">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Tetris Arquivo">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="favicon.svg">
   <title>Tetris Arquivo — Organize. Classifique. Preserve.</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="style.css">
@@ -143,5 +150,14 @@
   </main>
   <script src="script.js"></script>
   <script type="module" src="firebase.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js").catch((error) => {
+          console.warn("Não foi possível ativar o modo instalável/offline:", error);
+        });
+      });
+    }
+  </script>
 </body>
 </html>
