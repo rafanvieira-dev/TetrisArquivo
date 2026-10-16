@@ -889,3 +889,67 @@ kbd { display:inline-grid; place-items:center; min-width:17px; height:17px; marg
   body.mobile-playing .left-panel #nextCanvas,
   body.mobile-gameover .left-panel #nextCanvas { height:36px; max-height:36px; }
 }
+
+
+/* Controles abaixo do tabuleiro, com dimensões adaptáveis ao celular */
+@media (max-width: 920px), (pointer: coarse) {
+  body.mobile-playing .touch-controls,
+  body.mobile-gameover .touch-controls {
+    position:static;
+    inset:auto;
+    z-index:auto;
+    display:flex !important;
+    align-items:center;
+    justify-content:space-between;
+    width:min(100%, 400px);
+    max-width:400px;
+    margin:8px auto 0;
+    padding:8px;
+    gap:clamp(8px, 3vw, 16px);
+    border:1px solid #2b3d4c;
+    border-radius:12px;
+    background:linear-gradient(145deg,#192735,#101923);
+    box-shadow:0 6px 16px #0003;
+    pointer-events:auto;
+  }
+  body.mobile-playing .touch-dpad,
+  body.mobile-gameover .touch-dpad {
+    grid-template-columns:repeat(3, clamp(34px, 10vw, 46px));
+    grid-template-rows:repeat(2, clamp(34px, 9vw, 42px));
+    gap:clamp(4px, 1.5vw, 6px);
+  }
+  body.mobile-playing .touch-actions,
+  body.mobile-gameover .touch-actions {
+    max-width:clamp(72px, 22vw, 100px);
+    gap:6px;
+  }
+  body.mobile-playing .touch-actions .touch-btn,
+  body.mobile-gameover .touch-actions .touch-btn {
+    min-height:clamp(36px, 9vw, 44px);
+    flex-direction:row;
+    gap:5px;
+    padding:4px;
+  }
+  body.mobile-playing .touch-actions .touch-btn span,
+  body.mobile-gameover .touch-actions .touch-btn span { font-size:20px; }
+  body.mobile-playing .touch-actions .touch-btn small,
+  body.mobile-gameover .touch-actions .touch-btn small { font-size:8px; }
+  body.mobile-playing .board-wrap,
+  body.mobile-gameover .board-wrap { display:flex; flex-direction:column; }
+  body.mobile-playing .board-frame,
+  body.mobile-gameover .board-frame { overflow:visible; }
+  body.mobile-playing .board-footer,
+  body.mobile-gameover .board-footer { display:none !important; }
+}
+@media (max-width: 380px) {
+  body.mobile-playing .touch-controls,
+  body.mobile-gameover .touch-controls { padding:6px; gap:6px; margin-top:6px; }
+  body.mobile-playing .touch-dpad,
+  body.mobile-gameover .touch-dpad { grid-template-columns:repeat(3, 34px); grid-template-rows:repeat(2, 34px); gap:4px; }
+  body.mobile-playing .touch-actions,
+  body.mobile-gameover .touch-actions { max-width:70px; }
+  body.mobile-playing .touch-actions .touch-btn,
+  body.mobile-gameover .touch-actions .touch-btn { flex-direction:column; gap:0; }
+  body.mobile-playing .touch-actions .touch-btn small,
+  body.mobile-gameover .touch-actions .touch-btn small { font-size:7px; }
+}
