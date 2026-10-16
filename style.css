@@ -398,3 +398,43 @@ kbd { display:inline-grid; place-items:center; min-width:17px; height:17px; marg
     max-height:58px;
   }
 }
+
+
+/* Prévia da próxima peça em um cartão compacto e quadrado */
+@media (min-width: 921px) {
+  .left-panel > .panel-card:not(.score-card) {
+    order:0;
+    width:100%;
+    padding:12px;
+  }
+  .left-panel > .panel-card:not(.score-card) .panel-heading {
+    margin-bottom:8px;
+  }
+  .left-panel #nextCanvas {
+    width:112px;
+    height:82px;
+    max-height:none;
+    margin:0 auto;
+    border:1px solid #344858;
+    border-radius:6px;
+    background:#0b131c;
+  }
+}
+@media (max-width: 920px) {
+  .left-panel > .panel-card:not(.score-card) {
+    padding:9px;
+  }
+  .left-panel > .panel-card:not(.score-card) .panel-heading {
+    margin-bottom:6px;
+  }
+  .left-panel #nextCanvas {
+    width:100%;
+    max-width:112px;
+    height:58px;
+    max-height:none;
+    margin:0 auto;
+    border:1px solid #344858;
+    border-radius:6px;
+    background:#0b131c;
+  }
+}
