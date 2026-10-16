@@ -145,3 +145,104 @@ kbd { display:inline-grid; place-items:center; min-width:17px; height:17px; marg
   .account-identity { flex:1 1 100%; }
   .google-btn { flex:1; }
 }
+
+
+/* Ajuste de proporções: tabuleiro maior, painel lateral mais legível */
+@media (min-width: 921px) {
+  .app-shell { width: min(1540px, calc(100% - 40px)); }
+  .game-layout {
+    grid-template-columns: minmax(205px, .86fr) minmax(360px, 410px) minmax(270px, 1.08fr);
+    gap: 22px;
+  }
+  .board-frame { padding: 11px; }
+  #gameCanvas { width: 100%; }
+  .panel-card { padding: 18px; }
+  .score-card > strong { font-size: 30px; }
+  .panel-label, .stat-row, .panel-heading h2 { font-size: 11px; }
+  .stat-row strong { font-size: 17px; }
+  .legend-item b { font-size: 12px; }
+  .legend-item small { font-size: 10px; }
+  .piece-legend { gap: 15px; }
+  .ranking-caption, .rank-name, .ranking-message { font-size: 11px; }
+  .leaderboard-list li { grid-template-columns: 24px 30px minmax(0,1fr) auto; gap: 9px; padding: 9px 0; }
+  .rank-avatar, .rank-initial { width: 30px; height: 30px; }
+  .rank-score { font-size: 16px; }
+}
+@media (min-width: 601px) and (max-width: 920px) {
+  .game-layout { grid-template-columns: minmax(190px, .85fr) minmax(340px, 1.15fr); gap: 16px; }
+  .board-wrap { width: 100%; }
+  .right-panel { grid-template-columns: 1fr; }
+  .legend-item b { font-size: 12px; }
+  .legend-item small, .ranking-caption, .rank-name { font-size: 10px; }
+}
+.touch-controls { display:none; }
+.touch-btn {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: none;
+  user-select: none;
+  display:flex; align-items:center; justify-content:center;
+  border:1px solid #465b6b; border-radius:12px;
+  color:#edf3f6; background:linear-gradient(180deg,#293b4a,#17232e);
+  box-shadow:0 4px 0 #0a1016, inset 0 1px 0 #ffffff18;
+  font-weight:900; cursor:pointer;
+}
+.touch-btn:active, .touch-btn.is-pressed {
+  transform:translateY(2px); box-shadow:0 2px 0 #0a1016, inset 0 1px 0 #ffffff18;
+  background:linear-gradient(180deg,#d5a35e,#b9823f); color:#17212a;
+}
+@media (pointer: coarse), (max-width: 600px) {
+  .touch-controls {
+    display:flex; align-items:center; justify-content:space-between; gap:18px;
+    margin:15px 2px 0; padding:12px;
+    border:1px solid #2b3d4c; border-radius:14px;
+    background:linear-gradient(145deg,#192735,#101923);
+    box-shadow:0 9px 20px #0003;
+  }
+  .touch-dpad {
+    display:grid; grid-template-columns:repeat(3, minmax(42px, 54px));
+    grid-template-rows:repeat(2, 48px); gap:7px;
+  }
+  .touch-up { grid-column:2; grid-row:1; font-size:25px; color:#d5a35e; }
+  .touch-left { grid-column:1; grid-row:2; font-size:20px; }
+  .touch-down { grid-column:2; grid-row:2; font-size:19px; }
+  .touch-right { grid-column:3; grid-row:2; font-size:20px; }
+  .touch-actions { display:flex; flex-direction:column; gap:9px; flex:1; max-width:104px; }
+  .touch-actions .touch-btn { min-height:46px; flex-direction:row; gap:7px; }
+  .touch-drop { border-color:#9a7548; background:linear-gradient(180deg,#d5a35e,#b9823f); color:#17212a; }
+  .touch-actions .touch-btn span { font-size:23px; }
+  .touch-actions .touch-btn small { font-size:9px; letter-spacing:.7px; }
+}
+@media (max-width: 600px) {
+  .app-shell { width:calc(100% - 16px); padding-top:10px; }
+  .topbar { margin-bottom:12px; }
+  .account-bar { margin-bottom:12px; }
+  .game-layout { max-width:480px; gap:12px; }
+  .board-wrap { width:min(100%, 390px); }
+  .board-frame { padding:7px; }
+  .overlay { inset:7px; padding:10px; }
+  .overlay-card { padding:16px 12px; }
+  .overlay-card h2 { font-size:24px; }
+  .overlay-card p:not(.overlay-kicker) { font-size:12px; }
+  .board-footer { font-size:9px; gap:8px 10px; }
+  .board-footer kbd { min-width:19px; height:19px; font-size:10px; }
+  .panel-card { padding:15px; }
+  .panel-heading h2 { font-size:12px; }
+  .panel-label, .stat-row { font-size:11px; }
+  .stat-row strong { font-size:17px; }
+  .score-card > strong { font-size:32px; }
+  .legend-item { gap:11px; }
+  .legend-item b { font-size:12px; }
+  .legend-item small { font-size:10px; }
+  .piece-legend { gap:14px; }
+  .ranking-caption, .rank-name, .ranking-message { font-size:11px; }
+  .leaderboard-list li { padding:9px 0; grid-template-columns:24px 29px minmax(0,1fr) auto; gap:8px; }
+  .rank-avatar, .rank-initial { width:29px; height:29px; }
+  .rank-score { font-size:15px; }
+}
+@media (max-width: 360px) {
+  .touch-controls { gap:8px; padding:8px; }
+  .touch-dpad { grid-template-columns:repeat(3, 42px); grid-template-rows:repeat(2, 44px); gap:5px; }
+  .touch-actions { max-width:86px; }
+  .touch-actions .touch-btn { min-height:42px; }
+  .touch-actions .touch-btn small { font-size:8px; }
+}
