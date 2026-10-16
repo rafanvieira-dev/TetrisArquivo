@@ -8,7 +8,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyATeOsBTqIQw47scF1rWhPOacUFe8uSqhg",
+  apiKey: "AIzaSyATeOsBTqIEw47scF1rWhPOacUFe8uSqhg",
   authDomain: "tetrisarquivo.firebaseapp.com",
   projectId: "tetrisarquivo",
   storageBucket: "tetrisarquivo.firebasestorage.app",
