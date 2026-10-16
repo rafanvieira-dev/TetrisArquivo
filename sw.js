@@ -1,11 +1,13 @@
-const CACHE_NAME = "tetris-arquivo-v1";
+const CACHE_NAME = "tetris-arquivo-v2";
 const APP_SHELL = [
   "./",
   "./index.html",
   "./style.css",
   "./script.js",
   "./manifest.json",
-  "./favicon.svg"
+  "./favicon.svg",
+  "./icons/icon-192.svg",
+  "./icons/icon-512.svg"
 ];
 
 self.addEventListener("install", (event) => {
