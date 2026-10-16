@@ -341,6 +341,58 @@
     else if ((e.key === "Enter") && !running) startGame();
   });
 
+  // Controles touch com repetição ao manter pressionado, como em um joystick de minigame.
+  const touchControls = document.querySelector(".touch-controls");
+  if (touchControls) {
+    let holdDelay = null;
+    let holdRepeat = null;
+    let activePointer = null;
+    const stopHold = () => {
+      if (holdDelay) clearTimeout(holdDelay);
+      if (holdRepeat) clearInterval(holdRepeat);
+      holdDelay = null;
+      holdRepeat = null;
+      activePointer = null;
+      touchControls.querySelectorAll(".is-pressed").forEach(button => button.classList.remove("is-pressed"));
+    };
+    touchControls.querySelectorAll("[data-action]").forEach(button => {
+      const action = button.dataset.action;
+      const perform = () => {
+        if (action === "left") move(-1);
+        else if (action === "right") move(1);
+        else if (action === "down") drop();
+        else if (action === "rotate") turn();
+        else if (action === "drop") hardDrop();
+        else if (action === "pause") togglePause();
+      };
+      button.addEventListener("contextmenu", event => event.preventDefault());
+      button.addEventListener("pointerdown", event => {
+        event.preventDefault();
+        if (action === "pause" || action === "drop") {
+          perform();
+          button.classList.add("is-pressed");
+          setTimeout(() => button.classList.remove("is-pressed"), 130);
+          return;
+        }
+        stopHold();
+        activePointer = event.pointerId;
+        button.classList.add("is-pressed");
+        try { button.setPointerCapture(event.pointerId); } catch (_) {}
+        perform();
+        holdDelay = setTimeout(() => {
+          holdRepeat = setInterval(perform, action === "down" ? 75 : 105);
+        }, 170);
+      });
+      button.addEventListener("pointerup", event => {
+        if (activePointer === event.pointerId) stopHold();
+        button.classList.remove("is-pressed");
+      });
+      button.addEventListener("pointercancel", stopHold);
+      button.addEventListener("lostpointercapture", stopHold);
+    });
+    window.addEventListener("blur", stopHold);
+  }
+
   startBtn.addEventListener("click", () => {
     if (running && paused && !gameOver) {
       paused = false; overlay.classList.add("hidden"); statusText.textContent = "ARQUIVO EM ORGANIZAÇÃO";
