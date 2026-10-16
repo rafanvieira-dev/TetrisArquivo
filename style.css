@@ -814,3 +814,78 @@ kbd { display:inline-grid; place-items:center; min-width:17px; height:17px; marg
   body.mobile-playing .touch-actions,
   body.mobile-gameover .touch-actions { max-width:78px; }
 }
+
+
+/* Touchscreen: controles integrados ao tabuleiro, sem faixa de botões abaixo */
+@media (max-width: 920px), (pointer: coarse) {
+  .board-frame { position:relative; }
+  body.mobile-playing .touch-controls,
+  body.mobile-gameover .touch-controls {
+    position:absolute;
+    inset:4px;
+    z-index:5;
+    display:flex !important;
+    align-items:flex-end;
+    justify-content:space-between;
+    width:auto;
+    max-width:none;
+    margin:0;
+    padding:0 4px 5px;
+    gap:6px;
+    border:0;
+    border-radius:2px;
+    background:transparent;
+    box-shadow:none;
+    pointer-events:none;
+  }
+  body.mobile-playing .touch-dpad,
+  body.mobile-gameover .touch-dpad {
+    grid-template-columns:repeat(3, clamp(30px, 9vw, 42px));
+    grid-template-rows:repeat(2, clamp(30px, 8vw, 38px));
+    gap:4px;
+    pointer-events:auto;
+  }
+  body.mobile-playing .touch-actions,
+  body.mobile-gameover .touch-actions {
+    max-width:clamp(62px, 19vw, 84px);
+    gap:5px;
+    pointer-events:auto;
+  }
+  body.mobile-playing .touch-actions .touch-btn,
+  body.mobile-gameover .touch-actions .touch-btn {
+    min-height:clamp(32px, 8vw, 38px);
+    border-radius:8px;
+    flex-direction:column;
+    gap:0;
+    padding:2px;
+  }
+  body.mobile-playing .touch-actions .touch-btn span,
+  body.mobile-gameover .touch-actions .touch-btn span { font-size:17px; line-height:1; }
+  body.mobile-playing .touch-actions .touch-btn small,
+  body.mobile-gameover .touch-actions .touch-btn small { font-size:7px; }
+  body.mobile-playing .touch-btn,
+  body.mobile-gameover .touch-btn {
+    opacity:.82;
+    border-color:#8da0af88;
+    background:linear-gradient(180deg,#293b4acc,#17232ecc);
+    box-shadow:0 2px 0 #0a101688;
+    backdrop-filter:blur(2px);
+  }
+  body.mobile-playing .touch-drop,
+  body.mobile-gameover .touch-drop { background:#d5a35ecc; }
+  body.mobile-playing .board-wrap,
+  body.mobile-gameover .board-wrap { width:min(100%, 400px); }
+  body.mobile-playing .board-frame,
+  body.mobile-gameover .board-frame { overflow:hidden; }
+  body.mobile-playing .board-footer,
+  body.mobile-gameover .board-footer { display:none !important; }
+  .mobile-speed-row { display:none; }
+}
+@media (max-height: 700px) and (max-width: 920px) {
+  body.mobile-playing #gameCanvas,
+  body.mobile-gameover #gameCanvas { width:min(100%, calc((100dvh - 190px) / 2)); }
+  body.mobile-playing .left-panel,
+  body.mobile-gameover .left-panel { gap:5px; }
+  body.mobile-playing .left-panel #nextCanvas,
+  body.mobile-gameover .left-panel #nextCanvas { height:36px; max-height:36px; }
+}
